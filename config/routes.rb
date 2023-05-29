@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/show'
+  get 'reviews/new'
+  get 'reviews/create'
   get 'bookings/show'
 
   devise_for :users

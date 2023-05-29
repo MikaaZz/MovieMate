@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_135457) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_135741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135457) do
     t.index ["users_id"], name: "index_listings_on_users_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "bookings_id", null: false
+    t.bigint "users_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
+    t.index ["users_id"], name: "index_reviews_on_users_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,4 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135457) do
   add_foreign_key "bookings", "listings", column: "listings_id"
   add_foreign_key "bookings", "users", column: "users_id"
   add_foreign_key "listings", "users", column: "users_id"
+  add_foreign_key "reviews", "bookings", column: "bookings_id"
+  add_foreign_key "reviews", "users", column: "users_id"
 end
