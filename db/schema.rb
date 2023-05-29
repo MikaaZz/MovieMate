@@ -18,12 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135741) do
     t.string "date"
     t.string "request"
     t.integer "duration"
-    t.bigint "listings_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "listing_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["listings_id"], name: "index_bookings_on_listings_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["listing_id"], name: "index_bookings_on_listing_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -31,21 +31,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135741) do
     t.string "location"
     t.string "description"
     t.integer "price"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_listings_on_users_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
-    t.bigint "bookings_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "booking_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
-    t.index ["users_id"], name: "index_reviews_on_users_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,9 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135741) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "listings", column: "listings_id"
-  add_foreign_key "bookings", "users", column: "users_id"
-  add_foreign_key "listings", "users", column: "users_id"
-  add_foreign_key "reviews", "bookings", column: "bookings_id"
-  add_foreign_key "reviews", "users", column: "users_id"
+  add_foreign_key "bookings", "listings"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "listings", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "users"
 end
