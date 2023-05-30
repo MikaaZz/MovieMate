@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @listing = @booking.listing
   end
 
   def create
@@ -14,7 +15,6 @@ class BookingsController < ApplicationController
     @listing = @booking.listing
     @booking.user = current_user
     respond_to do |format|
-      raise
       if @booking.save
         format.html { redirect_to new_listing_booking_path(@listing), notice: "Booking was successfully created." }
       else
