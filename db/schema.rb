@@ -59,7 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_104722) do
     t.string "location"
     t.string "description"
     t.integer "price"
-    t.bigint "user_id", null: false
+    t.string "category"
+    t.bigint "users_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_listings_on_user_id"
