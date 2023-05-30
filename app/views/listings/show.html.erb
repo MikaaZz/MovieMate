@@ -20,10 +20,12 @@
           <p class="card-text">Unit Price: <%= @listing.price %></p>
           <div class="section-divider"></div>
           <p class="card-text">Total Price: <%= @listing.price %></p>
-          <button class="confirm-button">
-            <span class="button-text">Confirm Booking</span>
-            <span class="button-arrow"></span>
-          </button>
+          <%= simple_form_for [@listing, @booking] do |f| %>
+            <%= f.input :date %>
+            <%= f.input :request %>
+            <%= f.input :duration %>
+            <%= f.submit "Confirm Booking", class: "confirm-button" %>
+          <% end %>
         </div>
       </div>
     </div>
