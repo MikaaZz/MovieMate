@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 
-<div class="container mt-4">
+<div class="container my-5">
   <div class="row">
     <div class="listing_box">
       <% @listings.each do |listing| %>
@@ -30,10 +30,7 @@
       <% end %>
     </div>
   </div>
-  <div class="text-center mb-4">
-    <a href="#" class="float">
-      <i class="fa fa-plus my-float"></i>
-</a>
-    <%= link_to "Add Listing", new_listing_path%>
+  <div class="w-100 text-center mb-4 d-flex justify-content-center align-item-center">
+    <%= link_to "Add Listing", new_listing_path, class: "float text-decoration-none" %>
   </div>
 </div>
