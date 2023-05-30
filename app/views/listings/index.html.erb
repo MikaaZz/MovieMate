@@ -1,14 +1,12 @@
-<%= render "shared/navbar"%>
-
 <h1>Listings</h1>
 
-<div>
-  <div class="container">
-    <div class="row">
+<div class="container mt-4">
+  <div class="row">
+    <div class="listing_box">
       <% @listings.each do |listing| %>
         <div class="col-md-4">
           <div class="listing-card">
-            <%= link_to listing_path(listing) do %>
+            <%= link_to listings_path(listing) do %>
             <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill %>
               <h2 class="listing-text"><%= listing.title %></h2>
               <p class="listing-text"><%= listing.description %></p>
@@ -20,6 +18,10 @@
       <% end %>
     </div>
   </div>
-
- <button class="button"> <%= link_to "Add Listing", new_listing_path %> </button>
+  <div class="text-center mb-4">
+    <a href="#" class="float">
+      <i class="fa fa-plus my-float"></i>
+</a>
+    <%= link_to "Add Listing", new_listing_path%>
+  </div>
 </div>
