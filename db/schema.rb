@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_104722) do
     t.string "description"
     t.integer "price"
     t.string "category"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_listings_on_user_id"
@@ -80,6 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_104722) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "location"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
