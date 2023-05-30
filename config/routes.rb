@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "pages#home"
+  root to: "listings#index"
   resources :listings
   resources :users, only: [:show, :edit, :update]
-
 end
