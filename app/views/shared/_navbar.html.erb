@@ -11,8 +11,8 @@
     <%= render "shared/search_bar" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
           <li class="nav-item dropdown gap-3 w-100">
             <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
               <input type="checkbox" />
@@ -29,15 +29,18 @@
           <li>
             <%= image_tag current_user.photo_attachment, class: "avatar-bordered", alt: "dropdown menu" %>
           </li>
+          </ul>
         <% else %>
+        <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto rounded-pill px-3 py-1">
           <li class="nav-item">
             <%= link_to "Login", '/users/sign_in', class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Register", '/users/sign_up', class: "nav-link" %>
           </li>
+        </ul>
         <% end %>
-      </ul>
+
     </div>
   </div>
 </div>
