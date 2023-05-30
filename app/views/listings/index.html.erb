@@ -1,23 +1,35 @@
-<h1>Listings</h1>
-
-<div>
-  <div class="container">
-    <div class="row">
+<%= render "shared/navbar" %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="listing_box">
       <% @listings.each do |listing| %>
-        <div class="col-md-4">
-          <div class="listing-card">
-            <%= link_to listings_path(listing) do %>
-            <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill %>
-              <h2 class="listing-text"><%= listing.title %></h2>
-              <p class="listing-text"><%= listing.description %></p>
-              <p class="listing-text"><%= listing.price %></p>
-              <p class="listing-text"> <%= listing.location %></p>
-            <% end %>
-          </div>
+    <div class="listing_item">
+          <%= link_to listing_path(listing), class: "listing-item_link" do %>
+            <div class="listing-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+              <div class="listing-item_bg"></div>
+            </div>
+            <div class="listing-item_content">
+              <div class="listing-item_title">
+                <%= listing.title %>
+              </div>
+              <div class="listing-item_body">
+                <%= listing.description %>
+              </div>
+              <div class="listing-item_detail">
+                <strong>Price:</strong>
+                <span class="listing-item_price"><%= listing.price %>€</span>
+              </div>
+              <div class="listing-item_detail">
+                <i class="fa-thin fa-location-dot"></i>
+                <span class="listing-item_location"><%= listing.location %></span>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
- <button class="button"> <%= link_to "Add Listing", new_listing_path %> </button>
+  <div class="w-100 text-center mb-4 d-flex justify-content-center align-item-center">
+    <%= link_to "Add Listing", new_listing_path, class: "float text-decoration-none" %>
+  </div>
 </div>
