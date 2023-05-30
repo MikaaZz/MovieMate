@@ -1,3 +1,5 @@
+<%= render "shared/navbar"%>
+
 <h1>Listings</h1>
 
 <div>
@@ -6,7 +8,7 @@
       <% @listings.each do |listing| %>
         <div class="col-md-4">
           <div class="listing-card">
-            <%= link_to listings_path(listing) do %>
+            <%= link_to listing_path(listing) do %>
             <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill %>
               <h2 class="listing-text"><%= listing.title %></h2>
               <p class="listing-text"><%= listing.description %></p>

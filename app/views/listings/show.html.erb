@@ -1,2 +1,61 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="listing-card">
+        <div class="card-body">
+          <h5 class="card-title"><%= @listing.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <%= @listing.user.first_name %> <%= @listing.user.last_name %>
+          </h6>
+          <img src="https://media.gettyimages.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=gi&k=20&c=8ClshQC50T-wPj6CPvnPnFq1Er6Fs8fbrreXWehvdgk=" alt="Profile Picture">
+          <p class="card-text">Location: <%= @listing.location %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="booking-card">
+        <div class="card-body">
+          <h5 class="card-title">Booking Summary</h5>
+          <div class="section-divider"></div>
+          <p class="card-text">Unit Price: <%= @listing.price %></p>
+          <div class="section-divider"></div>
+          <p class="card-text">Total Price: <%= @listing.price %></p>
+          <button class="confirm-button">
+            <span class="button-text">Confirm Booking</span>
+            <span class="button-arrow"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h3>Description</h3>
+      <p><%= @listing.description %></p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h3>Other Listings by <%= @user.first_name %></h3>
+      <div class="small-listing-card-container">
+        <% @listings.each do |listing| %>
+          <div class="small-listing-card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= listing.title %></h5>
+              <img src="https://media.gettyimages.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=gi&k=20&c=8ClshQC50T-wPj6CPvnPnFq1Er6Fs8fbrreXWehvdgk=" alt="Profile Picture">
+              <p class="card-text">Location: <%= listing.location %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h3>Reviews</h3>
+    </div>
+  </div>
+</div>
