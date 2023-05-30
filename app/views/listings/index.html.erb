@@ -1,2 +1,23 @@
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<h1>Listings</h1>
+
+<div>
+  <div class="container">
+    <div class="row">
+      <% @listings.each do |listing| %>
+        <div class="col-md-4">
+          <div class="listing-card">
+            <%= link_to listings_path(list) do %>
+            <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill %>
+              <h2 class="listing-text"><%= listing.title %></h2>
+              <p class="listing-text"><%= listing.description %></p>
+              <p class="listing-text"><%= listing.price %></p>
+              <p class="listing-text"> <%= listing.location %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+ <button class="button"> <%= link_to "Add Listing", new_listing_path %> </button>
+</div>

@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_135023) do
     t.string "location"
     t.string "description"
     t.integer "price"
+    t.string "category"
     t.bigint "users_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
