@@ -1,0 +1,17 @@
+@import "config/colors";
+
+.submit-button {
+  background-color: $blue;
+  border-radius: 8px;
+
+  font-size: 20px;
+
+  margin-bottom: 20px;
+  padding: 10px 20px;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+}
