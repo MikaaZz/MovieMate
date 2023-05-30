@@ -2,27 +2,27 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div class="ag-courses_box">
+    <div class="listing_box">
       <% @listings.each do |listing| %>
-        <div class="ag-courses_item mb-4">
-          <%= link_to listing_path(listing), class: "ag-courses-item_link" do %>
-            <div class="ag-courses-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
-              <div class="ag-courses-item_bg"></div>
+        <div class="listing_item mb-4">
+          <%= link_to listing_path(listing), class: "listing-item_link" do %>
+            <div class="listing-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+              <div class="listing-item_bg"></div>
             </div>
-            <div class="ag-courses-item_content">
-              <div class="ag-courses-item_title">
+            <div class="listing-item_content">
+              <div class="listing-item_title">
                 <%= listing.title %>
               </div>
-              <div class="ag-courses-item_body">
+              <div class="listing-item_body">
                 <%= listing.description %>
               </div>
-              <div class="ag-courses-item_detail">
+              <div class="listing-item_detail">
                 <strong>Price:</strong>
-                <span class="ag-courses-item_price"><%= listing.price %>€</span>
+                <span class="listing-item_price"><%= listing.price %>€</span>
               </div>
-              <div class="ag-courses-item_detail">
+              <div class="listing-item_detail">
                 <i class="fa-thin fa-location-dot"></i>
-                <span class="ag-courses-item_location"><%= listing.location %></span>
+                <span class="listing-item_location"><%= listing.location %></span>
               </div>
             </div>
           <% end %>
@@ -30,7 +30,10 @@
       <% end %>
     </div>
   </div>
-  <div class="text-center mt-4">
-    <%= link_to "Add Listing", new_listing_path, class: "btn btn-primary rounded text-light" %>
+  <div class="text-center mb-4">
+    <a href="#" class="float">
+      <i class="fa fa-plus my-float"></i>
+</a>
+    <%= link_to "Add Listing", new_listing_path%>
   </div>
 </div>

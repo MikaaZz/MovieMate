@@ -10,19 +10,19 @@ body {
   background-color: $light-blue;
 }
 
-.ag-courses_box {
+.listing_box {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.ag-courses_item:hover {
+.listing_item:hover {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.ag-courses_item {
+.listing_item {
   width: 30%;
   height: auto;
   margin: 0 15px 30px;
@@ -34,14 +34,14 @@ body {
   justify-content: space-between;
 }
 
-.ag-courses-item_link {
+.listing-item_link {
   display: flex;
   flex-direction: column;
   color: inherit;
   text-decoration: none;
 }
 
-.ag-courses-item_image {
+.listing-item_image {
   height: 300px;
   background-size: cover;
   background-position: center;
@@ -49,7 +49,7 @@ body {
   border-radius: 15px;
 }
 
-.ag-courses-item_bg {
+.listing-item_bg {
   height: 100%;
   width: 100%;
   background: rgba(128, 128, 128, 0.3);
@@ -60,57 +60,82 @@ body {
   border-radius: 15px;
 }
 
-.ag-courses-item_content {
+.listing-item_content {
   padding: 8px;
   background-color: transparent;
 }
 
-.ag-courses-item_title {
+.listing-item_title {
   font-weight: bold;
   font-size: 18px;
   color: black;
   margin-bottom: 5px;
 }
 
-.ag-courses-item_body {
+.listing-item_body {
   font-size: 12px;
   color: black;
   margin-bottom: 5px;
 }
 
-.ag-courses-item_detail {
+.listing-item_detail {
   font-size: 12px;
   color: black;
   margin-bottom: 5px;
 }
 
-.ag-courses-item_price,
-.ag-courses-item_location {
+.listing-item_price,
+.listing-item_location {
   font-weight: bold;
 }
 
 // Add hover state for the card
-.ag-courses-item_link:hover .ag-courses-item_bg {
+.listing-item_link:hover .listing-item_bg {
   background: transparent
 }
 
 // Responsive styles
 @media only screen and (max-width: 979px) {
-  .ag-courses_item {
+  .listing_item {
     flex-basis: calc(50% - 30px);
   }
 
-  .ag-courses-item_title {
+  .listing-item_title {
     font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .ag-courses_item {
+  .listing_item {
     flex-basis: 100%;
   }
 
-  .ag-courses-item_title {
+  .listing-item_title {
     font-size: 18px;
   }
+}
+
+*{padding:0;margin:0;}
+
+body{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+	background-color:#CCC;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
 }
