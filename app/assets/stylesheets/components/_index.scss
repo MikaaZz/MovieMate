@@ -23,6 +23,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.listing_item:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .listing-item_link {
@@ -128,7 +135,9 @@ body{
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
-	box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.3)
+	box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.3);
+
+  transition: all 0.2s ease-in-out;
 }
 .float-new{
 	position:fixed;
@@ -141,7 +150,7 @@ body{
 .float:hover{
   color:#FFF;
   text-decoration:none;
-  font-weight: bold
+  transform: scale(1.05);
 }
 
 .my-float{
