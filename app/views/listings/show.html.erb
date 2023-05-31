@@ -1,47 +1,58 @@
 <%= render "shared/navbar" %>
-<div class="container">
+<div class="container my-5">
   <div class="row">
     <div class="col-lg-6">
-      <div class="show-card">
-        <div class="card-body">
-          <h5 class="card-title"><%= @listing.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <%= @listing.user.first_name %> <%= @listing.user.last_name %>
-          </h6>
-          <img src="https://media.gettyimages.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=gi&k=20&c=8ClshQC50T-wPj6CPvnPnFq1Er6Fs8fbrreXWehvdgk=" alt="Profile Picture">
-          <p class="card-text">Location: <%= @listing.location %></p>
-        </div>
+      <div class="show-listing_item">
+        <%= link_to @listing, class: "show-listing-item_link" do %>
+          <div class="show-listing-item_image" style="background-image: url(<%= @listing.photo.attached? ? url_for(@listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+            <div class="show-listing-item_bg"></div>
+          </div>
+          <div class="show-listing-item_content">
+            <div class="show-listing-item_title">
+              <%= @listing.title %>
+            </div>
+            <div class="show-listing-item_body">
+              <%= @listing.description %>
+            </div>
+            <div class="show-listing-item_detail">
+              <i class="fas fa-euro-sign"></i>
+              <span class="show-listing-item_price"><%= @listing.price %></span>
+            </div>
+            <div class="show-listing-item_detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="show-listing-item_location"><%= @listing.location %></span>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="booking-card">
-        <div class="card-body">
-          <h5 class="card-title">Booking Summary</h5>
+        <div class="card-body text-start">
+          <h5 class="card-title text-center">Booking Summary</h5>
           <div class="section-divider"></div>
-          <p class="card-text">Unit Price: <%= @listing.price %></p>
+          <p class="card-text text-start">Unit Price: <%= @listing.price %></p>
           <div class="section-divider"></div>
-          <p class="card-text">Total Price: <%= @listing.price %></p>
-          <%= simple_form_for [@listing, @booking] do |f| %>
+          <p class="card-text text-start">Total Price: <span data-booking-target="totalPrice"><%= @listing.price %></span></p>
+          <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
             <%= f.input :date %>
             <%= f.input :request %>
-            <%= f.input :duration %>
+            <%= f.input :duration, input_html: { data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
             <%= f.submit "Confirm Booking", class: "confirm-button" %>
           <% end %>
         </div>
       </div>
-    </div>
   </div>
-
   <div class="row mt-4">
     <div class="col-lg-12">
-      <h3>Description</h3>
+      <h2>Description</h2>
       <p><%= @listing.description %></p>
     </div>
   </div>
 
   <div class="row mt-4">
     <div class="col-lg-12">
-      <h3>Other Listings by <%= @user.first_name %></h3>
+      <h2>Other Listings by <%= @user.first_name %></h2>
       <div class="listing-card-container">
       <% @listings.each do |listing| %>
         <div class="listing_item">
