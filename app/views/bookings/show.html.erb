@@ -19,15 +19,14 @@
       <!-- Listing Card -->
       <div class="listing-card">
         <div class="card-body">
-          <h5 class="card-title"><%= @listing.title %></h5>
+          <h5 class="card-title"><%= @booking.listing.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            <%= @listing.user.first_name %> <%= @listing.user.last_name %>
+            <%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %>
           </h6>
           <img src="https://media.gettyimages.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=gi&k=20&c=8ClshQC50T-wPj6CPvnPnFq1Er6Fs8fbrreXWehvdgk=" alt="Profile Picture">
-          <p class="card-text">Location: <%= @listing.location %></p>
+          <p class="card-text">Location: <%= @booking.listing.location %></p>
         </div>
       </div>
     </div>
   </div>
 </div>
-

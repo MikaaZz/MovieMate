@@ -21,7 +21,7 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 35px;
+
 }
 
 .listing_item {
@@ -145,6 +145,13 @@ body{
 
   transition: all 0.2s ease-in-out;
 }
+.float-new{
+	position:fixed;
+	width:10%;
+	margin: 0 0 0 35px;
+	bottom:20px;
+	text-align:center;
+}
 
 .float:hover{
   color:#FFF;
@@ -154,4 +161,85 @@ body{
 
 .my-float{
 	margin-top:22px;
+}
+
+
+
+// new button
+$rotationDuration: 20s;
+$hoverDuration: 0.3s;
+
+$easeIn: cubic-bezier(0.32, 0, 0.67, 0);
+$easeOut: cubic-bezier(0.33, 1, 0.68, 1);
+
+$textColor: #7753cb;
+
+.link {
+	width: 10rem;
+	height: 10rem;
+	display: inline-block;
+	font: 300 1.55rem/1.4 "Josefin Sans";
+	text-transform: uppercase;
+	letter-spacing: 0.1175em;
+	word-spacing: 0.3em;
+	text-decoration: none;
+
+	&__svg {
+		width: 100%;
+		height: auto;
+		transform-box: fill-box;
+		fill: $textColor;
+		stroke: $textColor;
+		stroke-width: 0.05em;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	&__cloud {
+		transform-origin: 50% 50%;
+		animation: rotate normal infinite 3 * $rotationDuration linear;
+		fill: rgb(33, 204, 36);
+	}
+
+	&__face,
+	&__arrow {
+		transform-origin: 50% 50%;
+		transition: transform $hoverDuration / 2 $easeIn;
+
+		.link:hover & {
+			transform: scale(1.1);
+			transition: transform $hoverDuration $easeOut;
+		}
+	}
+
+	&__arrow {
+		stroke-width: 0.075em;
+	}
+
+	&__text {
+		animation: rotateReverse normal infinite $rotationDuration linear;
+		transform-origin: 50% 50%;
+
+		.link:hover & {
+			animation-play-state: paused;
+		}
+	}
+
+	&--alt {
+		font-size: 1.15rem;
+		letter-spacing: 0;
+		word-spacing: 0;
+	}
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotateReverse {
+	to {
+		transform: rotate(-360deg);
+	}
 }

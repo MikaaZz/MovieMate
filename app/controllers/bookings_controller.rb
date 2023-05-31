@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to new_listing_booking_path(@listing), notice: "Booking was successfully created." }
+        format.html { redirect_to listing_booking_path(listing_id: @listing.id, id: @booking.id), notice: "Booking was successfully created." }
       else
         format.html { redirect_to listings_path, alert: "Failed to create booking." }
       end
