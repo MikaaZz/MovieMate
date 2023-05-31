@@ -90,3 +90,7 @@
 .menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
+
+.nav-item:hover {
+  color: #232323;
+}
