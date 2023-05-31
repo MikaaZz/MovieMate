@@ -12,31 +12,32 @@
     <%= render "shared/search_bar" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
         <% if user_signed_in? %>
-          <li class="nav-item dropdown gap-3 w-100">
-            <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
-              <input type="checkbox" />
-              <span></span>
-              <span></span>
-              <span></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "/users/edit", class: "dropdown-item" %>
-              <%#= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-          <li>
-            <%= image_tag current_user.photo_attachment, class: "avatar-bordered", alt: "dropdown menu" %>
-          </li>
+          <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
+            <li class="nav-item dropdown gap-3 w-100">
+              <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", "/users/edit", class: "dropdown-item" %>
+                <%#= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
+            <li>
+              <%= image_tag current_user.photo_attachment, class: "avatar-bordered", alt: "dropdown menu" %>
+            </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", '/users/sign_in', class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Register", '/users/sign_up', class: "nav-link" %>
-          </li>
+          <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-none rounded-pill px-3 py-1">
+            <li class="nav-item">
+              <%= link_to "Login", '/users/sign_in', class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Register", '/users/sign_up', class: "nav-link" %>
+            </li>
         <% end %>
       </ul>
     </div>
