@@ -12,17 +12,6 @@
 
 @import "./../config/colors";
 
-body {
-  background-color: $light-blue;
-}
-
-.listing_box {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: center;
-
-}
 
 .listing_item {
   width: 30%;
@@ -96,6 +85,11 @@ body {
 .listing-item_price,
 .listing-item_location {
   font-weight: bold;
+}
+
+.listing_item:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 // Add hover state for the card
