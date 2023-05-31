@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking.listing = Listing.find(params[:listing_id])
     @listing = @booking.listing
     @booking.user = current_user
+    @user = current_user
     respond_to do |format|
       if @booking.save
         format.html { redirect_to listing_booking_path(listing_id: @listing.id, id: @booking.id), notice: "Booking was successfully created." }

@@ -1,36 +1,40 @@
-<h1>Add new listing</h1>
+<%= render "shared/navbar" %>
 
-<%= simple_form_for @listing do |form| %>
+<div class="container my-5">
 
-  <div class="form-inputs">
-    <%= form.input :title, label_html: { style: "display: block" } %>
-  </div>
+  <h1>New listing</h1>
 
-  <div>
-    <%= form.input :description, as: :text, label_html: { style: "display: block" } %>
-  </div>
+  <br>
 
-  <div>
-    <%= form.input :price, label_html: { style: "display: block" } %>
-  </div>
+  <%= simple_form_for @listing do |form| %>
 
-  <div>
-    <%= form.input :location, label_html: { style: "display: block" } %>
-  </div>
+    <div class="form-inputs">
+      <%= form.input :title, label_html: { style: "display: block" } %>
+    </div>
 
-  <div>
-    <%= form.input :category, as: :select, collection: ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-Fi"], label_html: { style: "display: block" } %>
-  </div>
+    <div>
+      <%= form.input :description, as: :text, label_html: { style: "display: block" } %>
+    </div>
 
-  <div class="form-group">
-    <%= form.input :photo, as: :file, label: "Photo" %>
-  </div>
+    <div>
+      <%= form.input :price, label_html: { style: "display: block" } %>
+    </div>
 
-  <div class="form-actions">
-    <%= form.submit "Add", class: 'submit-button' %>
-  </div>
-<% end %>
+    <div>
+      <%= form.input :location, label_html: { style: "display: block" } %>
+    </div>
 
-<div>
-  <%= link_to "Back to lists", listings_path %>
+    <div>
+      <%= form.input :category, as: :select, collection: ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-Fi"], label_html: { style: "display: block" } %>
+    </div>
+
+    <div class="form-group">
+      <%= form.input :photo, as: :file, label: "Photo" %>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit "Add", class: 'submit-button' %>
+    </div>
+  <% end %>
+
 </div>

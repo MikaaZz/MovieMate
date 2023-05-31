@@ -2,19 +2,19 @@
 
   <div class="card p-3">
 
-    <h2 class="fw-bold">Personal <%= @user.first_name %> infos</h2>
+    <h2 class="fw-bold"><%= @user.first_name %>'s Personal Infos</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, required: true, autofocus: true %>
+        <%= f.input :first_name, required: true, autofocus: true, input_html: {class: "custom-input"}%>
         <hr/>
-        <%= f.input :last_name, required: true, autofocus: true %>
+        <%= f.input :last_name, required: true, autofocus: true, input_html: {class: "custom-input"}%>
         <hr/>
-        <%= f.input :location, autofocus: true %>
+        <%= f.input :location, autofocus: true, input_html: {class: "custom-input"} %>
         <hr/>
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true, input_html: {class: "custom-input"} %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
@@ -41,23 +41,45 @@
 
   <div>
 
-    <h3 class="fw-bold">My bookings</h3>
+  <br>
 
-    <% if @bookings %>
+  <h3 class="fw-bold form-header">My bookings</h3>
 
-      <p>You have: <%= @bookings.length %> bookings</p>
+  <% if @user.bookings %>
 
-      <% @bookings.each do |booking| %>
-        <div>
+
+    <p class="form-text">You have: <%= @user.bookings.length %> bookings</p>
+
+    <div class="listing-card-container">
+      <% @user.bookings.each do |booking| %>
+        <div class="listing_item">
+          <%= link_to listing_path(booking.listing), class: "listing-item_link" do %>
+            <div class="listing-item_image" style="background-image: url(<%= booking.listing.photo.attached? ? url_for(booking.listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+              <div class="listing-item_bg"></div>
+            </div>
+            <div class="listing-item_content">
+              <div class="listing-item_title">
+                <%= booking.listing.title %>
+              </div>
+              <div class="listing-item_body">
+                <%= booking.listing.description %>
+              </div>
+              <div class="listing-item_detail">
+                <i class="fas fa-duotone fa-calendar"></i>
+                <span class="listing-item_price"><%= booking.date %></span>
+              </div>
+              <div class="listing-item_detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="listing-item_location"><%= booking.listing.location %></span>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
-
-    <% else %>
-
-      <p>You have no bookings yet</p>
-
-    <% end %>
+    </div>
+  <% else %>
+    <p class="form-text">You have no bookings yet</p>
+  <% end %>
 
   </div>
-
 </div>
