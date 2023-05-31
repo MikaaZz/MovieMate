@@ -20,6 +20,17 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.show-listing_item_booking {
+  width: 40%;
+  height: auto;
+  margin: 0 15px 30px;
+  overflow: hidden;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .show-listing-item_link {
   display: flex;
@@ -35,8 +46,26 @@
   position: relative;
   border-radius: 15px;
 }
+.show-listing-item_image_booking {
+  height: 300px; // larger image
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border-radius: 15px;
+}
 
 .show-listing-item_bg {
+  height: auto;
+  width: 40%;
+  background: rgba(128, 128, 128, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .5s ease;
+  border-radius: 15px;
+}
+.show-listing-item_bg_booking {
   height: 100%;
   width: 100%;
   background: rgba(128, 128, 128, 0.3);
