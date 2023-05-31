@@ -1,10 +1,9 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
 
   def edit
-    @user = current_user
     @bookings = @user.bookings
     @listings = @user.listings
   end

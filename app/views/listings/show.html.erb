@@ -11,9 +11,6 @@
             <div class="show-listing-item_title">
               <%= @listing.title %>
             </div>
-            <div class="show-listing-item_body">
-              <%= @listing.description %>
-            </div>
             <div class="show-listing-item_detail">
               <i class="fas fa-euro-sign"></i>
               <span class="show-listing-item_price"><%= @listing.price %></span>
@@ -32,7 +29,7 @@
           <h5 class="card-title text-center">Booking Summary</h5>
           <div class="section-divider"></div>
           <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
-            <%= f.input :date, input_html: {class: "custom-input"} %>
+            <%= f.date_field :date, input_html: {class: "custom-input"} %>
             <%= f.input :request, input_html: { rows: "2;", class: "custom-input" } %>
             <%= f.input :duration, input_html: { class: "custom-input",data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
           <div class="section-divider"></div>
@@ -52,7 +49,7 @@
   <div class="row mt-4">
     <div class="col-lg-12">
       <h2>Other Listings by <%= @user.first_name %></h2>
-      <div class="listing-card-container">
+      <div class="listing-card-container mt-4">
       <% @listings.each do |listing| %>
         <div class="listing_item">
           <%= link_to listing_path(listing), class: "listing-item_link" do %>

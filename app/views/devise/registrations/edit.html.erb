@@ -45,13 +45,13 @@
 
   <h3 class="fw-bold form-header">My bookings</h3>
 
-  <% if @bookings %>
+  <% if @user.bookings %>
 
 
-    <p class="form-text">You have: <%= @bookings.length %> bookings</p>
+    <p class="form-text">You have: <%= @user.bookings.length %> bookings</p>
 
     <div class="listing-card-container">
-      <% @bookings.each do |booking| %>
+      <% @user.bookings.each do |booking| %>
         <div class="listing_item">
           <%= link_to listing_path(booking.listing), class: "listing-item_link" do %>
             <div class="listing-item_image" style="background-image: url(<%= booking.listing.photo.attached? ? url_for(booking.listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
