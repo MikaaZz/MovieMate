@@ -2,7 +2,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="listing-card-container">
-      <% @listings.each do |listing| %>
+      <% @listings.reverse().each do |listing| %>
         <div class="listing_item">
           <%= link_to listing_path(listing), class: "listing-item_link" do %>
             <div class="listing-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
