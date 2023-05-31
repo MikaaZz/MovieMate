@@ -4,6 +4,7 @@ class UserController < ApplicationController
   end
 
   def edit
+    @bookings = @user.bookings
   end
 
   def update

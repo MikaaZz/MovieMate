@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
 
     respond_to do |format|
       if @listing.save
@@ -23,6 +24,8 @@ class ListingsController < ApplicationController
         format.json { render :show, status: :created, location: @listing }
       else
         format.html { redirect_to listings_path, alert: "Failed to create booking." }
+        puts @listing.errors.full_messages.inspect
+        raise
       end
     end
   end
