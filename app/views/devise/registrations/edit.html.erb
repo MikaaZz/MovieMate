@@ -43,23 +43,43 @@
 
   <br>
 
-    <h3 class="fw-bold form-header">My bookings</h3>
+  <h3 class="fw-bold form-header">My bookings</h3>
 
-    <% if @bookings %>
+  <% if @bookings %>
 
-      <p class="form-text">You have: <%= @bookings.length %> bookings</p>
 
+    <p class="form-text">You have: <%= @bookings.length %> bookings</p>
+
+    <div class="listing-card-container">
       <% @bookings.each do |booking| %>
-        <div>
+        <div class="listing_item">
+          <%= link_to listing_path(booking.listing), class: "listing-item_link" do %>
+            <div class="listing-item_image" style="background-image: url(<%= booking.listing.photo.attached? ? url_for(booking.listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+              <div class="listing-item_bg"></div>
+            </div>
+            <div class="listing-item_content">
+              <div class="listing-item_title">
+                <%= booking.listing.title %>
+              </div>
+              <div class="listing-item_body">
+                <%= booking.listing.description %>
+              </div>
+              <div class="listing-item_detail">
+                <i class="fas fa-duotone fa-calendar"></i>
+                <span class="listing-item_price"><%= booking.date %></span>
+              </div>
+              <div class="listing-item_detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="listing-item_location"><%= booking.listing.location %></span>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
-
-    <% else %>
-
-      <p class="form-text">You have no bookings yet</p>
-
-    <% end %>
+    </div>
+  <% else %>
+    <p class="form-text">You have no bookings yet</p>
+  <% end %>
 
   </div>
-
 </div>

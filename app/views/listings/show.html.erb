@@ -31,13 +31,12 @@
         <div class="card-body text-start">
           <h5 class="card-title text-center">Booking Summary</h5>
           <div class="section-divider"></div>
-          <p class="card-text text-start">Unit Price: <%= @listing.price %></p>
-          <div class="section-divider"></div>
-          <p class="card-text text-start">Total Price: <span data-booking-target="totalPrice"><%= @listing.price %></span></p>
           <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
-            <%= f.input :date %>
-            <%= f.input :request %>
-            <%= f.input :duration, input_html: { data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
+            <%= f.input :date, input_html: {class: "custom-input"} %>
+            <%= f.input :request, input_html: { rows: "2;", class: "custom-input" } %>
+            <%= f.input :duration, input_html: { class: "custom-input",data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
+          <div class="section-divider"></div>
+          <p class="card-text text-start">Total Price: <span data-booking-target="totalPrice"><%= @listing.price %>€</span></p>
             <%= f.submit "Confirm Booking", class: "confirm-button" %>
           <% end %>
         </div>
