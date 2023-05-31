@@ -1,45 +1,40 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-3 sticky-top">
-
   <div class="container container-fluid">
     <%= link_to listings_path, class: "navbar-brand bg-dark rounded-circle p-1 ms-4" do %>
-      <%= image_tag "https://cdn.discordapp.com/attachments/1105433122998325278/1113050154845605941/moviemate-28893-0-removebg-preview.png"%>
+      <%= image_tag "https://cdn.discordapp.com/attachments/1105433122998325278/1113050154845605941/moviemate-28893-0-removebg-preview.png" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <%= render "shared/search_bar" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% if user_signed_in? %>
-          <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
-            <li class="nav-item dropdown gap-3 w-100">
-              <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", "/users/edit", class: "dropdown-item" %>
-                <%#= link_to "Another action", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
-            </li>
-            <li>
-              <%= image_tag "chrome://branding/content/about-logo@2x.png", class: "avatar-bordered", alt: "dropdown menu" %>
-            </li>
-        <% else %>
-          <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-none rounded-pill px-3 py-1">
-            <li class="nav-item">
-              <%= link_to "Login", '/users/sign_in', class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Register", '/users/sign_up', class: "nav-link" %>
-            </li>
-        <% end %>
-
+      <% if user_signed_in? %>
+        <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
+          <li class="nav-item dropdown gap-3 w-100">
+            <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li>
+            <%= image_tag current_user.photo, class: "avatar-bordered", alt: "dropdown menu" %>
+          </li>
+        </ul>
+      <% else %>
+        <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto rounded-pill px-3 py-1">
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
