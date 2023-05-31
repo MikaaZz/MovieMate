@@ -1,66 +1,71 @@
 <%= render "shared/navbar" %>
-<%# <h1 class="text-center my-5"> Booking Confirmed! </h1> %>
 <div class="container my-5">
   <div class="row">
     <div class="col-lg-8">
       <div class="booking-card">
         <div class="card-body text-start">
           <h5 class="card-title text-center">Booking Confirmed!</h5>
+          <p class="card-text text-start">Congrats <%= @booking.user.first_name %>! You have successfully booked your slot. Have fun with <%= @booking.listing.user.first_name %></p>
+          <div class="show-listing-item_booking>
+            <%= link_to @booking.listing, class: "show-listing-item_link" do %>
+              <div class="show-listing-item_image_booking" style="background-image: url(<%= @booking.listing.photo.attached? ? url_for(@booking.listing.photo) : 'https://static.vecteezy.com/system/resources/previews/016/774/516/original/purple-check-mark-icon-on-transparent-background-free-png.png' %>)">
+                <div class="show-listing-item_bg"></div>
+              </div>
+              <div class="show-listing-item_content">
+                <div class="show-listing-item_title">
+                  <%= @booking.listing.title %>
+                </div>
+                <div class="show-listing-item_body">
+                  <%= @booking.listing.description %>
+                </div>
+                <div class="show-listing-item_detail">
+                  <i class="fas fa-euro-sign"></i>
+                  <span class="show-listing-item_price"><%= @booking.listing.price %></span>
+                </div>
+                <div class="show-listing-item_detail">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span class="show-listing-item_location"><%= @booking.listing.location %></span>
+                </div>
+              </div>
+            <% end %>
+          </div>
           <div class="section-divider"></div>
-          <p class="card-text text-start"> Congratulations! You have successfuly booked your slot. A confirmation has been sent on your email </p>
-          <div class="section-divider"></div>
-          <p class="card-text text-start">klndfdkln</p>
-          <div class="section-divider"></div>
-          <div class="listing-card">
-            <div class="card-body">
-            <img src="https://media.gettyimages.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=gi&k=20&c=8ClshQC50T-wPj6CPvnPnFq1Er6Fs8fbrreXWehvdgk=" alt="Profile Picture">
-            <h5 class="card-title"><%= @booking.listing.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              <%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %>
-            </h6>
-            <p class="card-text">Location: <%= @booking.listing.location %></p>
         </div>
       </div>
-
-        </div>
-      </div>
-      <h1>Booking Confirmation</h1>
+      <h1></h1>
       <!-- Payment options section -->
       <div class="payment-options">
-        <h2>Payment Options</h2>
+        <h2></h2>
         <!-- Payment form or options go here -->
       </div>
       <!-- Reviews section -->
       <div class="reviews">
-        <h2>Reviews</h2>
+        <h2></h2>
         <!-- Reviews content goes here -->
       </div>
     </div>
     <div class="col-lg-4">
-    <div class="booking-card">
+      <div class="booking-card">
         <div class="card-body text-start">
           <h5 class="card-title text-center">Payment Summary</h5>
           <div class="section-divider"></div>
-            <div class="d-flex justify-content-between mt-3">
-              <p class="card-text text-start "> total </p>
-              <p class="card-text text-start "> $100 </p>
-            </div>
-            <div class="d-flex justify-content-between mt-3">
-              <p class="card-text text-start "> GST(10%%) </p>
-              <p class="card-text text-start "> $10 </p>
-            </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p class="card-text text-start">Total</p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price, unit: '€') %></p>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p class="card-text text-start">GST(10%)</p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price * 0.1, unit: '€') %></p>
+          </div>
           <div class="section-divider"></div>
-            <div class="d-flex justify-content-between mt-3">
-              <p class="card-text text-start">amount to pay </p>
-              <p class="card-text text-start "> $110 </p>
-            </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p class="card-text text-start">Amount to pay</p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price + @booking.listing.price * 0.1, unit: '€') %></p>
+          </div>
           <div class="section-divider"></div>
           <a href="#" class="confirm-button">Pay now</a>
-
         </div>
       </div>
-      <!-- Listing Card -->
-
     </div>
   </div>
 </div>
