@@ -144,7 +144,7 @@ body{
 .float-new{
 	position:fixed;
 	width:10%;
-	padding: 10px 0;
+	margin: 0 0 0 35px;
 	bottom:20px;
 	text-align:center;
 }
@@ -168,20 +168,7 @@ $hoverDuration: 0.3s;
 $easeIn: cubic-bezier(0.32, 0, 0.67, 0);
 $easeOut: cubic-bezier(0.33, 1, 0.68, 1);
 
-$textColor: #ff0000;
-$bgColor: #2d9323;
-$accentColor: #B799FF;
-
-html, body {
-	height: 100%;
-}
-
-body {
-	background: #2d9323;
-	display: grid;
-	place-content: center;
-	grid-gap: 2rem;
-}
+$textColor: #7753cb;
 
 .link {
 	width: 10rem;
@@ -207,7 +194,7 @@ body {
 	&__cloud {
 		transform-origin: 50% 50%;
 		animation: rotate normal infinite 3 * $rotationDuration linear;
-		fill: rgba(255, 255, 255, 0.15);
+		fill: rgb(33, 204, 36);
 	}
 
 	&__face,
