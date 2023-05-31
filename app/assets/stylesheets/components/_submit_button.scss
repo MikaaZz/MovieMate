@@ -2,6 +2,7 @@
 
 .submit-button {
   background-color: $purple;
+
   border-radius: 8px;
 
   font-size: 20px;
@@ -13,5 +14,6 @@
 
   &:hover {
     background-color: darken($purple, 10%);
+
   }
 }
