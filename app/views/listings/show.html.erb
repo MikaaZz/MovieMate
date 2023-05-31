@@ -30,6 +30,7 @@
           <div class="section-divider"></div>
           <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
             <%= f.date_field :date, input_html: {class: "custom-input"} %>
+            <br><br>
             <%= f.input :request, input_html: { rows: "2;", class: "custom-input" } %>
             <%= f.input :duration, input_html: { class: "custom-input",data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
           <div class="section-divider"></div>
