@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listings = Listing.new
+    @listing = Listing.new
   end
 
   def create
@@ -22,8 +22,7 @@ class ListingsController < ApplicationController
         format.html { redirect_to listings_url(@listing), notice: "Listing was successfully created." }
         format.json { render :show, status: :created, location: @listing }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        format.html { redirect_to listings_path, alert: "Failed to create booking." }
       end
     end
   end
