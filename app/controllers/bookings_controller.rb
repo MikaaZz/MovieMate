@@ -9,11 +9,13 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @booking = Booking.new(booking_params)
     @booking.listing = Listing.find(params[:listing_id])
+    @booking.listing.price = @booking.listing.price * @booking.duration
     @listing = @booking.listing
-    @booking.user = current_user
-    @user = current_user
+    @booking.user = @user
+    # raise
     respond_to do |format|
       if @booking.save
         format.html do

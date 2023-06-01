@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 <div class="container my-5">
-  <div class="row">
+  <div class="row" data-controller="booking">
     <div class="col-lg-6">
       <div class="show-listing_item">
         <%= link_to @listing, class: "show-listing-item_link" do %>
@@ -13,7 +13,7 @@
             </div>
             <div class="show-listing-item_detail">
               <i class="fas fa-euro-sign"></i>
-              <span class="show-listing-item_price"><%= @listing.price %></span>
+              <span data-booking-target="price" class="show-listing-item_price"><%= @listing.price %></span>
             </div>
             <div class="show-listing-item_detail">
               <i class="fas fa-map-marker-alt"></i>
@@ -28,7 +28,7 @@
         <div class="card-body text-start">
           <h5 class="card-title text-center">Booking Summary</h5>
           <div class="section-divider"></div>
-          <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
+          <%= simple_form_for [@listing, @booking] do |f| %>
             <%= f.date_field :date, input_html: {class: "date-input"} %>
             <br><br>
             <%= f.input :request, input_html: { rows: "2;", class: "custom-input" } %>
