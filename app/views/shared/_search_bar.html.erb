@@ -1,5 +1,5 @@
-<form class="search-bar container-fluid">
-  <input type="text" placeholder="Use type to animate this"/>
+<form class="search-bar container-fluid" action="<%= listings_path %>" method="get">
+  <input type="text" name="query" placeholder="Search for your MovieMate..." style="padding-left: 20px;" data-action="input->search#handleInput" data-search-target="input" />
   <button type="submit" class="btn">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>

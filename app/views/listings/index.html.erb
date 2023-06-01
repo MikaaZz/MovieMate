@@ -1,33 +1,8 @@
+<div data-controller="search">
 <%= render "shared/navbar" %>
 <div class="container my-5">
   <div class="row">
-    <div class="listing-card-container">
-      <% @listings.reverse().each do |listing| %>
-        <div class="listing_item">
-          <%= link_to listing_path(listing), class: "listing-item_link" do %>
-            <div class="listing-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
-              <div class="listing-item_bg"></div>
-            </div>
-            <div class="listing-item_content">
-              <div class="listing-item_title">
-                <%= listing.title %>
-              </div>
-              <div class="listing-item_body text-truncate">
-                <%= listing.description %>
-              </div>
-              <div class="listing-item_detail">
-                <i class="fas fa-euro-sign"></i>
-                <span class="listing-item_price"><%= listing.price %></span>
-              </div>
-              <div class="listing-item_detail">
-                <i class="fas fa-map-marker-alt"></i>
-                <span class="listing-item_location"><%= listing.location %></span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+    <%= render "listings", listings: @listings %>
     <div class="w-100 text-center mb-4 d-flex justify-content-left">
       <%= link_to new_listing_path, class: "link link--alt float-new" do %>
         <svg viewBox='0 0 200 200' width='200' height='200' xmlns='http://www.w3.org/2000/svg' class="link__svg" aria-labelledby="link2-title link2-desc">
@@ -47,11 +22,12 @@
 
           <text class="link__text">
             <textPath href="#link-circle-alt" stroke="none">
-              • movie expert? • share your passion
+              • movie expert? • share your passion 🖤
             </textPath>
           </text>
         </svg>
       <% end %>
     </div>
   </div>
+</div>
 </div>
