@@ -29,10 +29,10 @@
           <h5 class="card-title text-center">Booking Summary</h5>
           <div class="section-divider"></div>
           <%= simple_form_for [@listing, @booking], data: { controller: "booking", price: @listing.price } do |f| %>
-            <%= f.date_field :date, input_html: {class: "custom-input"} %>
+            <%= f.date_field :date, input_html: {class: "date-input"} %>
             <br><br>
             <%= f.input :request, input_html: { rows: "2;", class: "custom-input" } %>
-            <%= f.input :duration, input_html: { class: "custom-input",data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
+            <%= f.input :duration, label: "Duration (h)", collection: 1..10, input_html: { class: "custom-input",data: { action: "input->booking#updateTotal", booking_target: "duration" } } %>
           <div class="section-divider"></div>
           <p class="card-text text-start">Total Price: <span data-booking-target="totalPrice"><%= @listing.price %>€</span></p>
             <%= f.submit "Confirm Booking", class: "confirm-button" %>
