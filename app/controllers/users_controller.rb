@@ -23,5 +23,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :location) # Add other attributes as needed
   end
-
 end

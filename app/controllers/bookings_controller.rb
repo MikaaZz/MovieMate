@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def show
     @booking = Booking.find(params[:id])
   end
@@ -17,7 +16,10 @@ class BookingsController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to listing_booking_path(listing_id: @listing.id, id: @booking.id), notice: "Booking was successfully created." }
+        format.html do
+          redirect_to listing_booking_path(listing_id: @listing.id, id: @booking.id),
+                      notice: "Booking was successfully created."
+        end
       else
         format.html { redirect_to listings_path, alert: "Failed to create booking." }
       end
