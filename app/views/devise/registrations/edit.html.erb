@@ -47,8 +47,7 @@
 
   <h3 class="fw-bold form-header">My bookings</h3>
 
-  <% if @user.bookings %>
-
+  <% if @user.bookings.length > 0 %>
 
     <p class="form-text">You have: <%= @user.bookings.length %> bookings</p>
 
