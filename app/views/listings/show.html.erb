@@ -83,6 +83,33 @@
   <div class="row mt-4">
     <div class="col-lg-12">
       <h3>Reviews</h3>
+      <% if @reviews %>
+        <% @reviews.each do |review| %>
+          <div class="review-card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <div class="review-card_image" style="background-image: url(<%= review.user.photo.attached? ? url_for(review.user.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)"></div>
+                  <div class="review-card_content">
+                    <div class="review-card_title">
+                      <%= review.user.first_name %>
+                    </div>
+                    <div class="review-card_body">
+                      <%= review.content %>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-card_rating">
+                  <% review.rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
+
 </div>
