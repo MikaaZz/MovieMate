@@ -80,7 +80,4 @@ end
 gem "devise"
 gem "cloudinary"
 gem "faker"
-
-gem 'cloudinary'
-
-gem 'faker'
+gem "pg_search"

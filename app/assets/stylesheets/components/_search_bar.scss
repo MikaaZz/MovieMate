@@ -12,11 +12,11 @@
   max-width: 650px;
   width: 100%;
 
-
   input[type='text'] {
     border-radius: 9999px;
     border: none;
-
+    outline: none;
+    box-shadow: none;
     min-height: 40px;
 
     padding: 4px 8px;
