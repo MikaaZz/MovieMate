@@ -1,50 +1,44 @@
-<%= render "shared/navbar" %>
-<div class="container my-5">
+<div class="booking-container my-5 d-flex justify-content-center">
   <div class="row">
-    <div class="col-lg-8">
+
+    <%# Booking confirmed %>
+    <div class="col-lg-6">
       <div class="booking-card">
         <div class="card-body text-start">
-          <h5 class="card-title text-center">Booking Confirmed!</h5>
-          <p class="card-text text-start">Congrats <%= @booking.user.first_name %>! You have successfully booked your slot. Have fun with <%= @booking.listing.user.first_name %></p>
-          <div class="show-listing-item_booking>
+          <h5 class="card-title text-center">Booking Confirmed</h5>
+          <div class="section-divider"></div>
+          <br>
+          <br>
+
+          <div class="date-container">
+            <span class="date text-center">
+              <i class="far fa-calendar-alt fa-4x align-middle"></i>
+              <span class="date-text">May 30, 2023</span>
+            </span>
+          </div>
+          <br>
+          <br>
+
+          <p class="card-text text-start text-center">Congrats <%= @booking.user.first_name %>! </p>
+          <p class="card-text text-start text-center">You have successfully booked your slot with <%= @booking.listing.user.first_name %>.</p>
+          <p class="card-text text-start text-center">Complete your payment and wait for <%= @booking.listing.user.first_name %> to confirm.</p>
+          <div class="section-divider"></div>
+
+          <br>
+
+          <div class="show-listing-item_booking">
             <%= link_to @booking.listing, class: "show-listing-item_link" do %>
-              <div class="show-listing-item_image_booking" style="background-image: url(<%= @booking.listing.photo.attached? ? url_for(@booking.listing.photo) : 'https://static.vecteezy.com/system/resources/previews/016/774/516/original/purple-check-mark-icon-on-transparent-background-free-png.png' %>)">
-                <div class="show-listing-item_bg"></div>
-              </div>
-              <div class="show-listing-item_content">
-                <div class="show-listing-item_title">
-                  <%= @booking.listing.title %>
-                </div>
-                <div class="show-listing-item_body">
-                  <%= @booking.listing.description %>
-                </div>
-                <div class="show-listing-item_detail">
-                  <i class="fas fa-euro-sign"></i>
-                  <span class="show-listing-item_price"><%= @booking.listing.price %></span>
-                </div>
-                <div class="show-listing-item_detail">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span class="show-listing-item_location"><%= @booking.listing.location %></span>
-                </div>
+              <div class="show-listing-item_image_booking" style="background-image: url(https://cdn.discordapp.com/attachments/1105433122998325278/1113809540081795092/logo2_480.png)">
               </div>
             <% end %>
           </div>
-          <div class="section-divider"></div>
         </div>
       </div>
-      <h1></h1>
-      <!-- Payment options section -->
-      <div class="payment-options">
-        <h2></h2>
-        <!-- Payment form or options go here -->
-      </div>
-      <!-- Reviews section -->
-      <div class="reviews">
-        <h2></h2>
-        <!-- Reviews content goes here -->
-      </div>
+
     </div>
-    <div class="col-lg-4">
+
+    <!-- Payment summary -->
+    <div class="col-lg-5">
       <div class="booking-card">
         <div class="card-body text-start">
           <h5 class="card-title text-center">Payment Summary</h5>
@@ -63,9 +57,78 @@
             <p class="card-text text-start"><%= number_to_currency(@booking.listing.price + @booking.listing.price * 0.1, unit: '€') %></p>
           </div>
           <div class="section-divider"></div>
+
+                  <div class="payment-card">
+          <div class="card">
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header p-0" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <span>Paypal</span>
+                        <img src="https://i.imgur.com/7kQEsHU.png" width="30">
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Paypal email">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header p-0">
+                  <h2 class="mb-0">
+                    <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <span>Credit card</span>
+                        <div class="icons">
+                          <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                          <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                          <img src="https://i.imgur.com/35tC99g.png" width="30">
+                          <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body payment-card-body">
+                    <span class="font-weight-normal card-text">Card Number</span>
+                    <div class="input">
+                      <i class="fa fa-credit-card"></i>
+                      <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="row mt-3 mb-3">
+                      <div class="col-md-6">
+                        <span class="font-weight-normal card-text">Expiry Date</span>
+                        <div class="input">
+                          <i class="fa fa-calendar"></i>
+                          <input type="text" class="form-control" placeholder="MM/YY">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="font-weight-normal card-text">CVC/CVV</span>
+                        <div class="input">
+                          <i class="fa fa-lock"></i>
+                          <input type="text" class="form-control" placeholder="000">
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with SSL certificate</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
           <a href="#" class="confirm-button">Pay now</a>
         </div>
       </div>
-    </div>
+
+
   </div>
 </div>

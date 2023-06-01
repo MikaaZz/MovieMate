@@ -1,21 +1,29 @@
 @import "./../config/colors";
+@import "./../config/fonts";
+
+
+.booking-container{
+  position: sticky;
+}
 
 .booking-card {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   padding: 20px;
   text-align: center;
-  position: sticky;
   top: 120px;
+  transition: box-shadow 0.3s ease;
+
   .card-body {
     margin-bottom: 20px;
   }
 
   .card-title {
-    color: #21085b;
+    color: #9673e7;
     font-size: 2rem;
     font-weight: 600;
+    font-family: $headers-font;
     margin: 0;
     margin-bottom: 8px;
   }
@@ -26,9 +34,11 @@
   }
 
   .card-text {
-    font-weight: 600;
+    font-family: $body-font;
+    font-weight: 550;
     margin-bottom: 10px;
     font-size: 1.2rem;
+    justify-content: center;
   }
 
   .confirm-button {
@@ -63,6 +73,42 @@
     }
   }
 }
-.custom-input {
+.p {
   border-radius: 10px;
+}
+
+.custom-input{
+  border-radius: 10px;
+}
+
+.date-input input[type="date"].datepicker{
+  width: 300px !important;
+  padding: 10px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+  background-color: #f2f2f2 !important;
+  color: #333 !important;
+}
+
+.date-container {
+  border: 1px solid #B799FF;
+  height: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.date-text {
+  display: inline;
+  font-size: 24px;
+  margin-left: 100px;
+}
+
+
+.booking-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* or adjust the background color */
+  /* background-color: #f2f2f2; */
 }
