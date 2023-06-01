@@ -3,26 +3,33 @@
     <%= link_to listings_path, class: "navbar-brand rounded-circle p-1 ms-4" do %>
       <%= image_tag "https://cdn.discordapp.com/attachments/1105433122998325278/1113835554967130214/logowhite21_360.png" %>
     <% end %>
-
     <%= render "shared/search_bar" %>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <ul style="width: 120px" class="navbar-nav d-flex gap-3 align-items-center me-auto bg-white rounded-pill px-3 py-1">
-          <li class="nav-item dropdown gap-3 w-100">
-            <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menuToggle">
-              <input type="checkbox" />
-              <span></span>
-              <span></span>
-              <span></span>
+        <ul style="width: 150px; min-height: 45px" class="navbar-nav d-flex gap-3 align-items-center justify-content-between me-auto bg-white rounded-pill px-3 py-1" data-controller="open-menu">
+          <li class="position-relative">
+            <a data-open-menu-target="button" data-action="click->open-menu#openMenu" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu">
+              <span class="menu__line"></span>
+              <span class="menu__line"></span>
+              <span class="menu__line"></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-            </div>
+            <nav data-open-menu-target="nav" class="nav js-nav">
+              <ul data-open-menu-target="list" class="nav__list js-nav__list">
+                <li class="nav__item">
+                  <%= link_to "Profile", edit_user_registration_path, class: "nav__link" %>
+                </li>
+                <li class="nav__item">
+                  <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav__link" %>
+                </li>
+              </ul>
+            </nav>
           </li>
           <li>
-            <%= image_tag current_user.photo, class: "avatar-bordered", alt: "dropdown menu" %>
+            <% if current_user.photo.present? %>
+              <%= image_tag  current_user.photo, class: "avatar-bordered", alt: "User image" %>
+            <% else %>
+              <i class="fa-regular fa-user"></i>
+            <% end %>
           </li>
         </ul>
       <% else %>
