@@ -3,7 +3,9 @@
 .submit-button {
   background-color: $purple;
 
+  color: #222222;
   border-radius: 8px;
+  border: none;
 
   font-size: 20px;
 
@@ -11,9 +13,11 @@
   padding: 10px 20px;
 
   transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: darken($purple, 10%);
-
+    color: #222222;
   }
 }
