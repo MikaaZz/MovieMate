@@ -1,7 +1,7 @@
-@import "config/colors";
+@import 'config/colors';
 
 .navbar-lewagon {
-  background: #B799FF;
+  background: #b799ff;
   box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.3);
   justify-content: space-between;
 }
@@ -14,81 +14,129 @@
   width: 40px;
 }
 
-.menuToggle {
-  display: block;
+.menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background-color: $purple;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 4px;
   position: relative;
-
-  z-index: 1;
-
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.menuToggle input {
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-
+  z-index: 20;
+  box-shadow: 0px 3px 8px #333;
   cursor: pointer;
-
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-
-  -webkit-touch-callout: none;
+  &__line {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 13px;
+    transition-duration: 0.4s;
+  }
+  // hamburger menu transformation
+  &.active {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+  &.active .menu__line:nth-child(1) {
+    transform: translate(-12px, 7px) rotate(-45deg);
+  }
+  &.active .menu__line:nth-child(2) {
+    transition-duration: 0s;
+    opacity: 0;
+  }
+  &.active .menu__line:nth-child(3) {
+    transform: translate(-12px, -9px) rotate(45deg);
+  }
 }
-.menuToggle span {
+
+.nav {
   display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
+  position: absolute;
+  bottom: -1px;
+  background-color: $purple;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  z-index: 10;
+  transition-duration: 0.4s;
 
-  background: $purple;
-  border-radius: 3px;
+  &.open {
+    background-color: darken($purple, 10%);
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 
-  z-index: 1;
+  &__list {
+    display: none;
 
-  transform-origin: 4px 0px;
+    &.show {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
 
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 100%;
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    border-bottom: 1px solid #ffffffb0;
+
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  &__link {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: #ffffffb0;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
 }
 
-.menuToggle span:first-child {
-  transform-origin: 0% 0%;
-}
-
-.menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
-}
-
-/*
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-.menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-/*
- * But let's hide the middle one.
- */
-.menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-.menuToggle input:checked ~ span:nth-last-child(2) {
-  transform: rotate(-45deg) translate(0, -1px);
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .nav-item:hover {
