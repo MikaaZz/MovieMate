@@ -1,3 +1,5 @@
+<%= render "shared/navbar" %>
+
 <div class="booking-container my-5 d-flex justify-content-center">
   <div class="row">
 
@@ -12,7 +14,7 @@
           <div class="date-container">
             <span class="date text-center">
               <i class="far fa-calendar-alt fa-4x align-middle"></i>
-              <span class="date-text">May 30, 2023</span>
+              <span class="date-text"> <%= @booking.date %></span>
             </span>
           </div>
           <br>
