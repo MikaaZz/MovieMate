@@ -3,7 +3,10 @@
     <%= link_to listings_path, class: "navbar-brand rounded-circle p-1 ms-4" do %>
       <%= image_tag "https://cdn.discordapp.com/attachments/1105433122998325278/1113835554967130214/logowhite21_360.png" %>
     <% end %>
+    <% if params[:controller] == 'listings' && params[:action] == 'index' %>
+
     <%= render "shared/search_bar" %>
+    <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
         <ul style="width: 150px; min-height: 45px" class="navbar-nav d-flex gap-3 align-items-center justify-content-between me-auto bg-white rounded-pill px-3 py-1" data-controller="open-menu">
