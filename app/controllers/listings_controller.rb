@@ -19,6 +19,7 @@ class ListingsController < ApplicationController
     @user = @listing.user
     @booking = Booking.new
     @listings = @user.listings
+    @reviews = @booking.reviews
   end
 
   def new
