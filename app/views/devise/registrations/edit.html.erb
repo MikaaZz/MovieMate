@@ -79,6 +79,7 @@
       <div class="d-flex justify-content-center">
         <%= link_to 'Create a new listing', new_listing_path, class: 'submit-button' %>
       </div>
+    </div>
   </div>
   <div data-edit-profile-target="togglableElement" class="d-none edit-profile-pop-up">
     <div class="edit-profile-pop-up-black" data-action="click->edit-profile#toggle" ></div>
@@ -113,9 +114,9 @@
                       required: true,
                       input_html: { autocomplete: "current-password",class: "custom-input" } %>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Update", class: 'update-button w-100'%>
-          <button class='cancel-button w-100 btn-danger' data-action="click->edit-profile#toggle">Cancel</button>
+        <div class="form-actions d-flex gap-3 w-100">
+          <%= f.button :submit, "Update", class: 'update-button w-50'%>
+          <button class='cancel-button btn-danger w-50' data-action="click->edit-profile#toggle">Cancel</button>
         </div>
       <% end %>
     </div>

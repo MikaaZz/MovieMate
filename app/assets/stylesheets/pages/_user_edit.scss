@@ -1,7 +1,7 @@
 h1,
 h2,
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .card {
@@ -11,7 +11,6 @@ h3 {
 .edit-profile-button {
   position: fixed;
   top: 130px; /* Adjust the top position based on your navbar height */
-  right: 154px;
   z-index: 10; /* Adjust the z-index as needed */
   background: linear-gradient(180deg, #ffffff, #f9f5fd);
   color: black;
