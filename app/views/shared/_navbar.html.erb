@@ -9,7 +9,7 @@
     <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <ul style="width: 150px; min-height: 45px" class="navbar-nav d-flex gap-3 align-items-center justify-content-between me-auto bg-white rounded-pill px-3 py-1" data-controller="open-menu">
+        <ul id="menu-bg" style="width: 150px; min-height: 45px" class="navbar-nav d-flex gap-3 align-items-center justify-content-between me-auto bg-white rounded-pill px-3 py-1" data-controller="open-menu">
           <li class="position-relative">
             <a data-open-menu-target="button" data-action="click->open-menu#openMenu" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu">
               <span class="menu__line"></span>
