@@ -1,25 +1,48 @@
-.float-button-user-edit {
-  // position: fixed;
-  // left: 5%;
-  // bottom: 20px;
-  float: left;
-  border-radius: 12px;
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.card {
   border: none;
-  color: #FFF;
-  box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.3);
-  background-color: darken($purple, 10%);
-  transition: all 0.2s ease-in-out;
-  padding: 12px;
-  width: 100%;
-  z-index: 100;
+}
+
+.edit-profile-button {
+  position: fixed;
+  top: 130px; /* Adjust the top position based on your navbar height */
+  right: 154px;
+  z-index: 10; /* Adjust the z-index as needed */
+  background: linear-gradient(180deg, #ffffff, #f9f5fd);
+  color: black;
+  border-radius: 12px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+
   &:hover {
-    color: #FFF;
-    text-decoration: none;
-    transform: scale(1.05);
+    background: linear-gradient(180deg, #ffffff, $purple);
+    transform: scale(1.1);
   }
-  &:active {
-    transform: scale(0.95);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+  }
+  i {
+    font-size: 24px;
+  }
+
+  p {
+    margin-top: 12px;
+    font-size: 17px;
+    text-align: center;
   }
 }
 
@@ -43,7 +66,7 @@
 }
 
 .update-button {
-  background-color: $green;
+  background-color: $purple;
 
   color: #222222;
   border-radius: 8px;
@@ -65,9 +88,9 @@
 }
 
 .cancel-button {
-  background-color: $red;
+  background-color: rgb(81, 2, 2);
 
-  color: #222222;
+  color: white;
   border-radius: 8px;
   border: none;
 
