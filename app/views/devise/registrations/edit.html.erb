@@ -1,8 +1,12 @@
 <div data-controller="edit-profile" class="position-relative">
   <%= render "shared/navbar" %>
   <div class="container-md my-3 d-flex flex-column align-items-end gap-3 position-relative">
+    <div class="edit-profile-button" data-action="click->edit-profile#toggle">
+      <p class="text-center"><i class="fas fa-pen"></i>    Edit Profile </p>
+    </div>
     <div class="card p-3 w-100 rounded-2">
-      <h2 class="fw-bold m-0 p-0"><%= @user.first_name %>'s Personal Infos</h2>
+      <h2 class="fw-bold m-0 p-0"><%= @user.first_name.capitalize %>'s Profile</h2>
+      <%= @user.description %>
     </div>
     <div class="card p-3 w-100 rounded-2">
       <h3 class="fw-bold form-header">My bookings</h3>
@@ -38,7 +42,9 @@
       <% else %>
         <p class="form-text">You have no bookings yet</p>
       <% end %>
-      <%= link_to 'Make a new booking', '/', class: 'submit-button w-100' %>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'Make a new booking', '/', class: 'submit-button' %>
+      </div>
     </div>
     <div class="card p-3 w-100 rounded-2">
       <h3 class="fw-bold form-header">My Listings</h3>
@@ -70,13 +76,9 @@
       <% else %>
         <p class="form-text">You have no listings yet</p>
       <% end %>
-      <%= link_to 'Create a new listing', new_listing_path, class: 'submit-button w-100' %>
-    </div>
-    <div class="card p-3 w-100 rounded-2">
-      <button class="float-button-user-edit" data-action="click->edit-profile#toggle">
-        Edit profile
-      </button>
-    </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'Create a new listing', new_listing_path, class: 'submit-button' %>
+      </div>
   </div>
   <div data-edit-profile-target="togglableElement" class="d-none edit-profile-pop-up">
     <div class="edit-profile-pop-up-black" data-action="click->edit-profile#toggle" ></div>

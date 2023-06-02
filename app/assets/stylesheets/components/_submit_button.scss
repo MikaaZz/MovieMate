@@ -1,10 +1,10 @@
 @import "config/colors";
 
 .submit-button {
-  background-color: $purple;
-
-  color: #222222;
-  border-radius: 8px;
+  width: 20%;
+  background: linear-gradient(180deg, #ffffff, #f9f5fd);
+  color: black;
+  border-radius: 12px;
   border: none;
 
   font-size: 20px;
@@ -16,8 +16,13 @@
   text-decoration: none;
   text-align: center;
 
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+
   &:hover {
-    background-color: darken($purple, 10%);
-    color: #222222;
+    background: linear-gradient(180deg, #ffffff, $purple);
+    transform: scale(1.1);
+    color: black;
   }
 }
