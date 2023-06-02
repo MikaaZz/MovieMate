@@ -85,7 +85,7 @@
               <h2 class="ms-4 mb-0">Other Listings by <%= @user.first_name %></h2>
             </div>
             <div class="listing-card-container mt-4">
-              <% @listings.each do |listing| %>
+              <% @listings.where.not(id: @listing.id).each do |listing| %>
                 <div class="listing_item">
                   <%= link_to listing_path(listing), class: "listing-item_link" do %>
                     <div class="listing-item_image" style="background-image: url(<%= listing.photo.attached? ? url_for(listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
