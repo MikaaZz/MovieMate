@@ -12,10 +12,9 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = Booking.new(booking_params)
     @booking.listing = Listing.find(params[:listing_id])
-    @booking.listing.price = @booking.listing.price * @booking.duration
+    @booking.price = @booking.listing.price * @booking.duration
     @listing = @booking.listing
     @booking.user = @user
-    # raise
     respond_to do |format|
       if @booking.save
         format.html do

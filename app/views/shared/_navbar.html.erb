@@ -4,8 +4,7 @@
       <%= image_tag "https://cdn.discordapp.com/attachments/1105433122998325278/1113835554967130214/logowhite21_360.png" %>
     <% end %>
     <% if params[:controller] == 'listings' && params[:action] == 'index' %>
-
-    <%= render "shared/search_bar" %>
+      <%= render "shared/search_bar" %>
     <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
@@ -22,16 +21,21 @@
                   <%= link_to "Profile", edit_user_registration_path, class: "nav__link" %>
                 </li>
                 <li class="nav__item">
+                  <%= link_to "New listing", new_listing_path, class: "nav__link" %>
+                </li>
+                <li class="nav__item">
                   <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav__link" %>
                 </li>
               </ul>
             </nav>
           </li>
           <li>
-            <% if current_user.photo.present? %>
-              <%= image_tag  current_user.photo, class: "avatar-bordered", alt: "User image" %>
-            <% else %>
-              <i class="fa-regular fa-user"></i>
+            <%= link_to edit_user_registration_path do %>
+              <% if current_user.photo.present? %>
+                <%= image_tag  current_user.photo, class: "avatar-bordered", alt: "User image" %>
+              <% else %>
+                <i class="fa-regular fa-user nav-item"></i>
+              <% end %>
             <% end %>
           </li>
         </ul>
