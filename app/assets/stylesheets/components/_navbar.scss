@@ -26,7 +26,7 @@
   border-radius: 50%;
   padding: 4px;
   position: relative;
-  z-index: 20;
+  z-index: 3000;
   cursor: pointer;
   &__line {
     align-items: center;
@@ -144,6 +144,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.nav-item {
+  color: #232323;
 }
 
 .nav-item:hover {

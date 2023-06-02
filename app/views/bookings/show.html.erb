@@ -42,16 +42,16 @@
           <div class="section-divider"></div>
           <div class="d-flex justify-content-between mt-3">
             <p class="card-text text-start">Total</p>
-            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price, unit: '€') %></p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.price, unit: '€') %></p>
           </div>
           <div class="d-flex justify-content-between mt-3">
             <p class="card-text text-start">GST(10%)</p>
-            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price * 0.1, unit: '€') %></p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.price * 0.1, unit: '€') %></p>
           </div>
           <div class="section-divider"></div>
           <div class="d-flex justify-content-between mt-3">
             <p class="card-text text-start">Amount to pay</p>
-            <p class="card-text text-start"><%= number_to_currency(@booking.listing.price + @booking.listing.price * 0.1, unit: '€') %></p>
+            <p class="card-text text-start"><%= number_to_currency(@booking.price + @booking.price * 0.1, unit: '€') %></p>
           </div>
           <div class="section-divider"></div>
           <div class="payment-card">
