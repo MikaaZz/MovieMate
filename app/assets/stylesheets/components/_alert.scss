@@ -1,6 +1,15 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
   z-index: 1000;
+  color: black;
+  border: #000000 1px solid;
+  text-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.3);
+  font-weight: bolder;
+  border-radius: 12px;
+  background: url(https://img.freepik.com/vektoren-kostenlos/flammenillustrationssatz_74855-4417.jpg?w=2000);
+  background-repeat: repeat;
+  background-size: 10%;
 }
