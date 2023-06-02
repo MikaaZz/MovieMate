@@ -140,12 +140,13 @@ body{
   transition: all 0.2s ease-in-out;
 }
 .float-new{
-	position:fixed;
+	position:sticky;
 	width:10%;
-	margin: 0 0 0 30px;
+	margin: 0 0 30px 15px;
 	bottom:20px;
 	text-align:center;
-  z-index: 2
+  z-index: 2;
+  float: right;
 }
 
 .float:hover{
