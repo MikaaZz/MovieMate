@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.listing.price = @booking.listing.price * @booking.duration
     @listing = @booking.listing
     @booking.user = @user
-    # raise
+
     respond_to do |format|
       if @booking.save
         format.html do
