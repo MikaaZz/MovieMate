@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   def index
     query = params[:query]
     if query.present?
-      @listings = Listing.search_by_title_description_location_category(query)
+      @listings = Listing.search_by_title_description_location_category_user(query)
     else
       @listings = Listing.all
     end
