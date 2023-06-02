@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'bookings/show'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
   root to: "listings#index"
   resources :listings do
     resources :bookings, only: [:new, :create, :show]
@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update] do
     resources :bookings, only: [:show]
-
   end
 end
