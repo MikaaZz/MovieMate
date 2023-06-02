@@ -30,10 +30,12 @@
             </nav>
           </li>
           <li>
-            <% if current_user.photo.present? %>
-              <%= image_tag  current_user.photo, class: "avatar-bordered", alt: "User image" %>
-            <% else %>
-              <i class="fa-regular fa-user"></i>
+            <%= link_to edit_user_registration_path do %>
+              <% if current_user.photo.present? %>
+                <%= image_tag  current_user.photo, class: "avatar-bordered", alt: "User image" %>
+              <% else %>
+                <i class="fa-regular fa-user nav-item"></i>
+              <% end %>
             <% end %>
           </li>
         </ul>
