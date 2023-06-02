@@ -14,13 +14,13 @@
           <div class="date-container">
             <span class="date text-center">
               <i class="far fa-calendar-alt fa-4x align-middle"></i>
-              <span class="date-text"> <%= @booking.date %></span>
+              <p class="date-text"> <%= @booking.date %></p>
             </span>
           </div>
           <br>
           <br>
-          <p class="card-text text-start text-center">Congrats <%= @booking.user.first_name %>! </p>
-          <p class="card-text text-start text-center">You have successfully booked your slot with <%= @booking.listing.user.first_name %>.</p>
+          <p class="text-start text-center">Congrats <%= @booking.user.first_name %>! </p>
+          <p class="text-start text-center">You have successfully booked your slot with <%= @booking.listing.user.first_name %>.</p>
           <p class="card-text text-start text-center">Complete your payment and wait for <%= @booking.listing.user.first_name %> to confirm.</p>
           <div class="section-divider"></div>
           <br>

@@ -2,23 +2,32 @@
 <div class="container my-5">
   <div class="row" data-controller="booking">
     <div class="col-lg-6">
+
       <div class="show-listing_item">
         <%= link_to @listing, class: "show-listing-item_link" do %>
-          <div class="show-listing-item_image" style="background-image: url(<%= @listing.photo.attached? ? url_for(@listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
-            <div class="show-listing-item_bg"></div>
-          </div>
           <div class="show-listing-item_content">
             <div class="show-listing-item_title">
               <%= @listing.title %>
             </div>
+
+            <br>
+
+          <div class="show-listing-item_image" style="background-image: url(<%= @listing.photo.attached? ? url_for(@listing.photo) : 'https://cdn.discordapp.com/attachments/1105433122998325278/1108988901743398973/niklas_hyperrealistic_photo_portrait_closeup_Persona_3_The_Movi_a65c3693-4478-47ad-8309-db540c3efa5d.png' %>)">
+            <div class="show-listing-item_bg"></div>
+          </div>
+
+          <br>
+
             <div class="show-listing-item_detail">
               <i class="fas fa-euro-sign"></i>
               <span data-booking-target="price" class="show-listing-item_price"><%= @listing.price %></span>
             </div>
+
             <div class="show-listing-item_detail">
               <i class="fas fa-map-marker-alt"></i>
               <span class="show-listing-item_location"><%= @listing.location %></span>
             </div>
+            
           </div>
         <% end %>
       </div>
